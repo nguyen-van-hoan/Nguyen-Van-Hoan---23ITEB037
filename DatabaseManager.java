@@ -7,7 +7,7 @@ public class DatabaseManager {
     private final String password = "Nvh840511@";
 
     public void writeEmployeesToDatabase(List<Employee> employees) {
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+        try (Connection conn = DriverManager.getConnection(jdbc:mysql://localhost:3306/employee_management, root, Nvh840511@)) {
             String query = "INSERT INTO employee (full_name, birth_day, phone, email, employee_type, " +
                     "exp_in_year, pro_skill, graduation_date, graduation_rank, education, majors, semester, university_name) "
                     +
@@ -65,7 +65,7 @@ public class DatabaseManager {
 
     public List<Employee> readEmployeesFromDatabase() {
         List<Employee> employees = new ArrayList<>();
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+        try (Connection conn = DriverManager.getConnection(jdbc:mysql://localhost:3306/employee_management, root, Nvh840511@)) {
             String query = "SELECT * FROM employee";
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
